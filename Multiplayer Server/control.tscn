@@ -1,0 +1,153 @@
+[gd_scene load_steps=4 format=3 uid="uid://crinmvd0o6itu"]
+
+[ext_resource type="Script" path="res://control.gd" id="1_xyktl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pmvhm"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.133333, 0.133333, 0.133333, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_53dey"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.145098, 0.145098, 0.145098, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xyktl")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Main" type="Control" parent="TabContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Main"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HSplitContainer" type="HSplitContainer" parent="TabContainer/Main/MarginContainer"]
+layout_mode = 2
+split_offset = 625
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="TabContainer/Main/MarginContainer/HSplitContainer"]
+layout_mode = 2
+
+[node name="Output" type="RichTextLabel" parent="TabContainer/Main/MarginContainer/HSplitContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_pmvhm")
+text = "Server v0.1"
+selection_enabled = true
+
+[node name="LineEdit" type="LineEdit" parent="TabContainer/Main/MarginContainer/HSplitContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Main/MarginContainer/HSplitContainer"]
+layout_mode = 2
+
+[node name="StartServer" type="Button" parent="TabContainer/Main/MarginContainer/HSplitContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Start Server"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Main/MarginContainer/HSplitContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Main/MarginContainer/HSplitContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Port"
+
+[node name="Port" type="LineEdit" parent="TabContainer/Main/MarginContainer/HSplitContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "8888"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Main/MarginContainer/HSplitContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_53dey")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Main/MarginContainer/HSplitContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Main/MarginContainer/HSplitContainer/VBoxContainer/ScrollContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Peer count"
+
+[node name="Label2" type="Label" parent="TabContainer/Main/MarginContainer/HSplitContainer/VBoxContainer/ScrollContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "0"
+
+[node name="Settings" type="Control" parent="TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Settings/MarginContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Settings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Settings/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Max clients"
+
+[node name="MaxClients" type="LineEdit" parent="TabContainer/Settings/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "32"
+
+[connection signal="pressed" from="TabContainer/Main/MarginContainer/HSplitContainer/VBoxContainer/StartServer" to="." method="on_start_server_pressed"]

@@ -1,0 +1,235 @@
+[gd_scene load_steps=3 format=3 uid="uid://di83yg33a8u6"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_1divo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k4qvi"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1divo")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_k4qvi")
+current_tab = 1
+tabs_visible = false
+
+[node name="Main" type="Control" parent="TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="TabContainer/Main"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Main/CenterContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Singleplayer" type="Button" parent="TabContainer/Main/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Singleplayer"
+
+[node name="Multiplayer" type="Button" parent="TabContainer/Main/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Multiplayer"
+
+[node name="Multiplayer" type="Control" parent="TabContainer"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="TabContainer/Multiplayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="TabContainer/Multiplayer/CenterContainer"]
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Login"
+
+[node name="Login" type="LineEdit" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Password"
+
+[node name="Password" type="LineEdit" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+secret = true
+
+[node name="HSeparator" type="HSeparator" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Connect" type="Button" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Connect"
+
+[node name="Button" type="Button" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Add server"
+
+[node name="LocalHost" type="Button" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Local host"
+
+[node name="Cancel" type="Button" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+text = "Cancel"
+
+[node name="Connect" type="Control" parent="TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="TabContainer/Connect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="TabContainer/Connect/CenterContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Connect/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Connect/CenterContainer/PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Connect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Connect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "IP"
+
+[node name="IP" type="LineEdit" parent="TabContainer/Connect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Connect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Connect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Port"
+
+[node name="Port" type="LineEdit" parent="TabContainer/Connect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="TabContainer/Connect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Connect" type="Button" parent="TabContainer/Connect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Connect"
+
+[node name="Cancel" type="Button" parent="TabContainer/Connect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Cancel"
+
+[node name="FailedToConnect" type="Control" parent="TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="TabContainer/FailedToConnect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="TabContainer/FailedToConnect/CenterContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/FailedToConnect/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/FailedToConnect/CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/FailedToConnect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Failed to connect to the server"
+
+[node name="Button" type="Button" parent="TabContainer/FailedToConnect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Back"
+
+[connection signal="pressed" from="TabContainer/Main/CenterContainer/VBoxContainer/Multiplayer" to="." method="on_multiplayer_pressed"]
+[connection signal="pressed" from="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/Connect" to="." method="on_connect_tab_pressed"]
+[connection signal="pressed" from="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/LocalHost" to="." method="on_local_host_pressed"]
+[connection signal="pressed" from="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/Cancel" to="." method="on_multiplayer_cancel_pressed"]
+[connection signal="pressed" from="TabContainer/Connect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Connect" to="." method="on_connect_pressed"]
+[connection signal="pressed" from="TabContainer/Connect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Cancel" to="." method="on_connect_cancel_pressed"]
+[connection signal="pressed" from="TabContainer/FailedToConnect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Button" to="." method="on_failed_to_connect_back_pressed"]
