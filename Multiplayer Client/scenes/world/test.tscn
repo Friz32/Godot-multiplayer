@@ -1,6 +1,5 @@
-[gd_scene load_steps=8 format=3 uid="uid://bvgvslgxwd0ng"]
+[gd_scene load_steps=7 format=3 uid="uid://bvgvslgxwd0ng"]
 
-[ext_resource type="PackedScene" uid="uid://ddytpwtic2g2r" path="res://assets/3d/first_person_controller/player.tscn" id="1_j4lg5"]
 [ext_resource type="Texture2D" uid="uid://dds6iujk1q80j" path="res://textures/test.png" id="2_bb16y"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mbnog"]
@@ -36,8 +35,6 @@ environment = SubResource("Environment_8cc5m")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
-
-[node name="Player" parent="." instance=ExtResource("1_j4lg5")]
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
 use_collision = true
