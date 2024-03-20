@@ -4,6 +4,7 @@ var players := {}
 
 func load_all():
 	var file = FileAccess.open("user://database/players.csv", FileAccess.READ)
+	file.get_line() # Skip
 	while !file.eof_reached():
 		var csv = file.get_csv_line()
 		players[csv[0]] = {

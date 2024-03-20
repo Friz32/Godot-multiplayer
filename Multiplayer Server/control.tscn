@@ -110,7 +110,8 @@ layout_mode = 2
 size_flags_horizontal = 2
 text = "Peer count"
 
-[node name="Label2" type="Label" parent="TabContainer/Main/MarginContainer/HSplitContainer/VBoxContainer/ScrollContainer/HBoxContainer2"]
+[node name="PeerCount" type="Label" parent="TabContainer/Main/MarginContainer/HSplitContainer/VBoxContainer/ScrollContainer/HBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
 text = "0"

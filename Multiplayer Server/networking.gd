@@ -2,6 +2,9 @@ extends Node
 
 var players := {}
 
+func _ready() -> void:
+	multiplayer.peer_disconnected.connect(on_peer_disconnected)
+
 @rpc("any_peer")
 func connect_to_server(username: String, password: String):
 	for uuid in DB.players.keys():
@@ -20,3 +23,6 @@ func request_create_player(path: String):
 
 @rpc func go_to_scene(path: String): pass
 @rpc func create_player(position: Vector3): pass
+
+func on_peer_disconnected(id: int):
+	players.erase(id)

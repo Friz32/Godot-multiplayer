@@ -21,7 +21,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_k4qvi")
-current_tab = 1
+current_tab = 2
 tabs_visible = false
 
 [node name="Main" type="Control" parent="TabContainer"]
@@ -49,6 +49,7 @@ layout_mode = 2
 text = "Multiplayer"
 
 [node name="Multiplayer" type="Control" parent="TabContainer"]
+visible = false
 layout_mode = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="TabContainer/Multiplayer"]
@@ -81,36 +82,6 @@ size_flags_horizontal = 3
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 2
-text = "Login"
-
-[node name="Login" type="LineEdit" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 2
-text = "Password"
-
-[node name="Password" type="LineEdit" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-secret = true
-
-[node name="HSeparator" type="HSeparator" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-
 [node name="Connect" type="Button" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Connect"
@@ -129,7 +100,6 @@ size_flags_vertical = 10
 text = "Cancel"
 
 [node name="Connect" type="Control" parent="TabContainer"]
-visible = false
 layout_mode = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="TabContainer/Connect"]
@@ -179,6 +149,33 @@ text = "Port"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="TabContainer/Connect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Connect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Login"
+
+[node name="Login" type="LineEdit" parent="TabContainer/Connect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="TabContainer/Connect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Connect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Password"
+
+[node name="Password" type="LineEdit" parent="TabContainer/Connect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+secret = true
 
 [node name="Control" type="Control" parent="TabContainer/Connect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)

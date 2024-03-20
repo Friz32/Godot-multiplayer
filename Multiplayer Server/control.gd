@@ -6,12 +6,18 @@ extends Control
 @onready var output: RichTextLabel = %Output
 @onready var tab_container: TabContainer = $TabContainer
 
+@onready var peer_count: Label = %PeerCount
+
 var server_enabled := false
 
 func _ready() -> void:
 	tab_container.current_tab = 0
 	
 	multiplayer.peer_connected.connect(on_peer_connected)
+	multiplayer.peer_disconnected.connect(on_peer_disconnected)
+
+func _process(delta: float) -> void:
+	peer_count.text = str(Networking.players.size())
 
 func on_start_server_pressed() -> void:
 	if !server_enabled:
@@ -37,3 +43,6 @@ func on_start_server_pressed() -> void:
 
 func on_peer_connected(id: int):
 	output.add_text(str("\nPeer ", id, " connected"))
+
+func on_peer_disconnected(id: int):
+	output.add_text(str("\nPeer ", id, " disconnected"))
