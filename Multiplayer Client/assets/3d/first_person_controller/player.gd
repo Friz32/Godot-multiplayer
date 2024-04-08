@@ -63,6 +63,9 @@ func _unhandled_input(event):
 		
 		get_tree().root.set_input_as_handled()
 
+func _process(delta: float) -> void:
+	MP.send_player_position.rpc_id(1, position)
+
 func _physics_process(delta):
 	movement_mode_function[movement_mode].call()
 

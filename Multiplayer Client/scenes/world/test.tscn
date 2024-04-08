@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bvgvslgxwd0ng"]
+[gd_scene load_steps=10 format=3 uid="uid://bvgvslgxwd0ng"]
 
 [ext_resource type="Texture2D" uid="uid://dds6iujk1q80j" path="res://textures/test.png" id="2_bb16y"]
+[ext_resource type="Script" path="res://assets/warp/warp_3d.gd" id="2_pcu8h"]
+[ext_resource type="PackedScene" uid="uid://dpdpi6yp44fbd" path="res://scenes/world/test2.tscn" id="3_6aeb1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mbnog"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -15,17 +17,19 @@ sky = SubResource("Sky_4vty1")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gyc20"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h26wm"]
 albedo_texture = ExtResource("2_bb16y")
 uv1_scale = Vector3(0.2, 0.2, 0.2)
 uv1_triplanar = true
 texture_filter = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_hw8dk"]
-material = SubResource("StandardMaterial3D_gyc20")
+material = SubResource("StandardMaterial3D_h26wm")
 size = Vector2(200, 200)
 subdivide_width = 16
 subdivide_depth = 16
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sg2vx"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -39,3 +43,11 @@ shadow_enabled = true
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
 use_collision = true
 mesh = SubResource("PlaneMesh_hw8dk")
+
+[node name="Warp3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.701746, -6.9888)
+script = ExtResource("2_pcu8h")
+scene = ExtResource("3_6aeb1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Warp3D"]
+shape = SubResource("BoxShape3D_sg2vx")

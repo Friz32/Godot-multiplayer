@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://dpdpi6yp44fbd"]
+
+[ext_resource type="Texture2D" uid="uid://dds6iujk1q80j" path="res://textures/test.png" id="1_ireog"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_y23ub"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_smho7"]
+sky_material = SubResource("ProceduralSkyMaterial_y23ub")
+
+[sub_resource type="Environment" id="Environment_7tv7u"]
+background_mode = 2
+sky = SubResource("Sky_smho7")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8vyug"]
+albedo_color = Color(0, 1, 0.0235294, 1)
+albedo_texture = ExtResource("1_ireog")
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_triplanar = true
+texture_filter = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ov8vp"]
+material = SubResource("StandardMaterial3D_8vyug")
+size = Vector2(200, 200)
+subdivide_width = 16
+subdivide_depth = 16
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7tv7u")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+use_collision = true
+mesh = SubResource("PlaneMesh_ov8vp")

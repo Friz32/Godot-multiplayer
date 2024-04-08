@@ -28,7 +28,7 @@ func connect_to_server(ip: String, port: int, login: String, password: String):
 	self.password = password
 
 func on_connected_to_server():
-	Networking.connect_to_server.rpc_id(1, login, password)
+	MP.connect_to_server.rpc_id(1, login, password)
 
 func on_connection_failed():
 	tab_container.current_tab = tab_container.get_tab_idx_from_control(failed_to_connect_tab)

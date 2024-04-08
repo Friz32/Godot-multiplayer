@@ -21,6 +21,17 @@ func request_create_player(path: String):
 		if uuid == peer_uuid && "res://scenes/world/" + player["scene"] + ".tscn" == path:
 			create_player.rpc_id(multiplayer.get_remote_sender_id(), player["position"])
 
+@rpc("any_peer")
+func send_player_position(position: Vector3):
+	var uuid = players[multiplayer.get_remote_sender_id()]
+	DB.players[uuid]["position"] = position
+
+@rpc("any_peer")
+func send_player_scene(scene: String):
+	var uuid = players[multiplayer.get_remote_sender_id()]
+	var path = scene.trim_prefix("res://scenes/world").get_basename()
+	DB.players[uuid]["scene"] = path
+
 @rpc func go_to_scene(path: String): pass
 @rpc func create_player(position: Vector3): pass
 

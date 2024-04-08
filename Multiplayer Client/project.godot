@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Networking="*res://scripts/networking.gd"
+MP="*res://scripts/mp.gd"
 
 [input]
 

@@ -18,3 +18,5 @@ func create_player(position: Vector3):
 
 @rpc("any_peer") func connect_to_server(username: String, password: String): pass
 @rpc("any_peer") func request_create_player(path: String): pass
+@rpc("any_peer") func send_player_position(position: Vector3): pass
+@rpc("any_peer") func send_player_scene(scene: String): pass

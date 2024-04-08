@@ -17,7 +17,7 @@ func _ready() -> void:
 	multiplayer.peer_disconnected.connect(on_peer_disconnected)
 
 func _process(delta: float) -> void:
-	peer_count.text = str(Networking.players.size())
+	peer_count.text = str(MP.players.size())
 
 func on_start_server_pressed() -> void:
 	if !server_enabled:
@@ -33,6 +33,8 @@ func on_start_server_pressed() -> void:
 		
 		output.add_text("\nServer started")
 	else:
+		DB.save_all()
+		
 		multiplayer.multiplayer_peer = null
 		
 		start_server.text = "Start Server"

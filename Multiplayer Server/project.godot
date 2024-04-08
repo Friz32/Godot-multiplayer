@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Networking="*res://networking.gd"
+MP="*res://mp.gd"
 DB="*res://db.gd"
 
 [display]
