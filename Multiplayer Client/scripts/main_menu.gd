@@ -51,5 +51,8 @@ func on_failed_to_connect_back_pressed() -> void:
 func on_connect_pressed() -> void:
 	connect_to_server(ip.text, int(port.text), le_login.text, le_password.text)
 
-func on_local_host_pressed() -> void:
+func on_test1_pressed() -> void:
 	connect_to_server("127.0.0.1", 8888, "admin", "123456")
+
+func on_test2_pressed() -> void:
+	connect_to_server("127.0.0.1", 8888, "isaac", "123456")

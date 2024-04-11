@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://di83yg33a8u6"]
+[gd_scene load_steps=4 format=3 uid="uid://di83yg33a8u6"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_1divo"]
+[ext_resource type="StyleBox" uid="uid://bvlivtkr3mpd6" path="res://resources/panel.tres" id="2_y87ho"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k4qvi"]
 
@@ -21,11 +22,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_k4qvi")
-current_tab = 2
 tabs_visible = false
 
 [node name="Main" type="Control" parent="TabContainer"]
-visible = false
 layout_mode = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="TabContainer/Main"]
@@ -71,35 +70,53 @@ theme_override_constants/margin_top = 6
 theme_override_constants/margin_right = 6
 theme_override_constants/margin_bottom = 6
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Multiplayer"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("2_y87ho")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 
-[node name="Connect" type="Button" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Connect" type="Button" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Connect"
 
-[node name="Button" type="Button" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Button" type="Button" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Add server"
 
-[node name="LocalHost" type="Button" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Local host"
 
-[node name="Cancel" type="Button" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Test1" type="Button" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Test 1"
+
+[node name="Test2" type="Button" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Test 2"
+
+[node name="Cancel" type="Button" parent="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 10
 text = "Cancel"
 
 [node name="Connect" type="Control" parent="TabContainer"]
+visible = false
 layout_mode = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="TabContainer/Connect"]
@@ -123,6 +140,11 @@ theme_override_constants/margin_bottom = 8
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Connect/CenterContainer/PanelContainer/MarginContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Connect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Connect"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Connect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -224,9 +246,10 @@ size_flags_horizontal = 4
 text = "Back"
 
 [connection signal="pressed" from="TabContainer/Main/CenterContainer/VBoxContainer/Multiplayer" to="." method="on_multiplayer_pressed"]
-[connection signal="pressed" from="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/Connect" to="." method="on_connect_tab_pressed"]
-[connection signal="pressed" from="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/LocalHost" to="." method="on_local_host_pressed"]
-[connection signal="pressed" from="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/Cancel" to="." method="on_multiplayer_cancel_pressed"]
+[connection signal="pressed" from="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Connect" to="." method="on_connect_tab_pressed"]
+[connection signal="pressed" from="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Test1" to="." method="on_test1_pressed"]
+[connection signal="pressed" from="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Test2" to="." method="on_test2_pressed"]
+[connection signal="pressed" from="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Cancel" to="." method="on_multiplayer_cancel_pressed"]
 [connection signal="pressed" from="TabContainer/Connect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Connect" to="." method="on_connect_pressed"]
 [connection signal="pressed" from="TabContainer/Connect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Cancel" to="." method="on_connect_cancel_pressed"]
 [connection signal="pressed" from="TabContainer/FailedToConnect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Button" to="." method="on_failed_to_connect_back_pressed"]

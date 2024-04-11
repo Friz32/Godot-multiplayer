@@ -5,6 +5,7 @@ extends Control
 @onready var start_server: Button = %StartServer
 @onready var output: RichTextLabel = %Output
 @onready var tab_container: TabContainer = $TabContainer
+@onready var autostart: CheckBox = %Autostart
 
 @onready var peer_count: Label = %PeerCount
 
@@ -21,30 +22,36 @@ func _process(delta: float) -> void:
 
 func on_start_server_pressed() -> void:
 	if !server_enabled:
-		DB.load_all()
-		
-		var peer = ENetMultiplayerPeer.new()
-		peer.create_server(int(port.text), int(max_clients.text))
-		multiplayer.multiplayer_peer = peer
-		
-		start_server.text = "Stop Server"
-		start_server.modulate = Color(0.8, 0.3, 0.3)
-		server_enabled = true
-		
-		output.add_text("\nServer started")
+		start()
 	else:
-		DB.save_all()
-		
-		multiplayer.multiplayer_peer = null
-		
-		start_server.text = "Start Server"
-		start_server.modulate = Color.WHITE
-		server_enabled = false
-		
-		output.add_text("\nServer stopped")
+		stop()
 
 func on_peer_connected(id: int):
 	output.add_text(str("\nPeer ", id, " connected"))
 
 func on_peer_disconnected(id: int):
 	output.add_text(str("\nPeer ", id, " disconnected"))
+
+func start():
+	DB.load_all()
+	
+	var peer = ENetMultiplayerPeer.new()
+	peer.create_server(int(port.text), int(max_clients.text))
+	multiplayer.multiplayer_peer = peer
+	
+	start_server.text = "Stop Server"
+	start_server.modulate = Color(0.8, 0.3, 0.3)
+	server_enabled = true
+	
+	output.add_text("\nServer started")
+
+func stop():
+	DB.save_all()
+	
+	multiplayer.multiplayer_peer = OfflineMultiplayerPeer.new()
+	
+	start_server.text = "Start Server"
+	start_server.modulate = Color.WHITE
+	server_enabled = false
+	
+	output.add_text("\nServer stopped")
