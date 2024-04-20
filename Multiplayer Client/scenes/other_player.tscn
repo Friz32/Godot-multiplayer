@@ -1,17 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://qn8iye62tqws"]
 
 [ext_resource type="Script" path="res://scripts/other_player.gd" id="1_75u0s"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_2f4fl"]
+[ext_resource type="PackedScene" uid="uid://de3dxk7mup22v" path="res://assets/3d/character/character.tscn" id="2_5xucd"]
 
 [node name="OtherPlayer" type="Node3D"]
 script = ExtResource("1_75u0s")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_2f4fl")
-
-[node name="Label3D" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
+[node name="Name" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9, 0)
 billboard = 1
 text = "Name"
+
+[node name="Character" parent="." instance=ExtResource("2_5xucd")]

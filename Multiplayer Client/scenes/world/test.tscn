@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bvgvslgxwd0ng"]
+[gd_scene load_steps=11 format=3 uid="uid://bvgvslgxwd0ng"]
 
 [ext_resource type="Texture2D" uid="uid://dds6iujk1q80j" path="res://textures/test.png" id="2_bb16y"]
 [ext_resource type="Script" path="res://assets/warp/warp_3d.gd" id="2_pcu8h"]
@@ -31,6 +31,8 @@ subdivide_depth = 16
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sg2vx"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_1bxnv"]
+
 [node name="Node3D" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -51,3 +53,7 @@ scene = ExtResource("3_6aeb1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Warp3D"]
 shape = SubResource("BoxShape3D_sg2vx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Warp3D"]
+mesh = SubResource("BoxMesh_1bxnv")
+skeleton = NodePath("../..")

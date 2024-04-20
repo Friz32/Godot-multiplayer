@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=3 uid="uid://de3dxk7mup22v"]
+
+[ext_resource type="PackedScene" uid="uid://cygv135wjh3w2" path="res://assets/3d/character/character.fbx" id="1_8myx6"]
+
+[node name="Character" instance=ExtResource("1_8myx6")]
+
+[node name="Skeleton3D" parent="RootNode/Root" index="0"]
+bones/24/rotation = Quaternion(-0.0392975, 0.738853, -0.672719, -5.66994e-05)
+bones/26/rotation = Quaternion(-0.0317301, 0.0244072, 0.0392604, 0.998427)
+bones/29/rotation = Quaternion(0.197075, -0.0021582, 0.0126694, 0.980304)
+bones/30/rotation = Quaternion(-0.192491, -0.0719993, -0.0319271, 0.978133)
+bones/33/rotation = Quaternion(-0.528941, -0.252052, -0.623027, 0.518197)
+bones/34/rotation = Quaternion(-0.439268, 0.674337, -0.143836, 0.575868)
+bones/35/rotation = Quaternion(0.785558, 0.0776454, -0.0555328, 0.61138)
+bones/36/rotation = Quaternion(0.113653, 0.776971, 0.136177, 0.604033)
+bones/37/rotation = Quaternion(0.62709, -0.0603988, 0.0637241, 0.773983)
+bones/38/rotation = Quaternion(0.680236, 0.0348993, 0.0580459, 0.729858)
+bones/46/rotation = Quaternion(0.781913, -0.498434, 0.338663, 0.159635)
+bones/47/rotation = Quaternion(-0.024486, 0.91149, 0.34067, -0.229194)
+bones/48/rotation = Quaternion(-0.106947, -0.0130503, 0.693854, 0.71201)
+bones/49/rotation = Quaternion(-0.0249366, 0.00397295, 0.0488046, 0.998489)
+bones/50/rotation = Quaternion(-0.593913, -0.101662, 0.00193598, 0.798078)
+bones/51/rotation = Quaternion(-0.717688, 0.0618119, 0.0589671, 0.691106)
+bones/55/rotation = Quaternion(-0.0849717, 0.846759, -0.38228, -0.360056)
+bones/56/rotation = Quaternion(-0.278352, -0.029029, 0.118846, 0.952656)
+bones/59/rotation = Quaternion(0.881977, 0.0644086, 0.110984, 0.453486)
+bones/60/rotation = Quaternion(0.823159, -0.0421606, 0.215631, 0.52358)
+bones/61/rotation = Quaternion(-0.524671, -0.164057, -0.248505, 0.797528)
+bones/65/rotation = Quaternion(0.951263, -0.00692837, -0.160898, 0.262986)
+bones/66/rotation = Quaternion(0.501816, 0.00324686, -0.209317, 0.839259)
+bones/67/rotation = Quaternion(-0.637427, 0.217956, 0.18824, 0.714667)
+
+[node name="RightHand" type="BoneAttachment3D" parent="." index="2"]
+transform = Transform3D(-41.7887, 90.8199, 2.34656, -84.1461, -37.7186, -38.6877, -34.2502, -18.1415, 92.1839, -0.207149, 0.69101, 0.185723)
+bone_name = "RightHandIndex1"
+bone_idx = 50
+use_external_skeleton = true
+external_skeleton = NodePath("../RootNode/Root/Skeleton3D")
+
+[node name="LeftHand" type="BoneAttachment3D" parent="." index="3"]
+transform = Transform3D(30.7106, -93.0452, -19.9879, -87.3163, -35.9018, 32.9692, -37.8511, 7.3277, -92.2691, 0.216744, 0.768246, 0.0592112)
+bone_name = "LeftHandIndex1"
+bone_idx = 37
+use_external_skeleton = true
+external_skeleton = NodePath("../RootNode/Root/Skeleton3D")
+
+[node name="Head" type="BoneAttachment3D" parent="." index="4"]
+transform = Transform3D(99.7781, 5.77719, -3.33399, -6.24165, 98.4937, -16.1246, 2.35215, 16.2968, 98.6351, -0.00321522, 1.25192, 0.102845)
+bone_name = "Head"
+bone_idx = 30
+use_external_skeleton = true
+external_skeleton = NodePath("../RootNode/Root/Skeleton3D")

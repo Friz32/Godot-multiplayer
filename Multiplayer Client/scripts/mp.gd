@@ -20,13 +20,15 @@ func _process(delta: float) -> void:
 	for uuid in other_players.keys():
 		var other_player = preload("uid://qn8iye62tqws").instantiate()
 		other_player.uuid = uuid
-		other_player.position = other_players[uuid]
+		other_player.position = other_players[uuid]["position"]
+		other_player.get_node("Name").text = other_players[uuid]["display_name"]
 		get_tree().current_scene.add_child(other_player)
 
-@rpc func create_other_player(uuid: StringName, position: Vector3):
+@rpc func create_other_player(uuid: StringName, position: Vector3, display_name: String):
 	var other_player = preload("uid://qn8iye62tqws").instantiate()
 	other_player.uuid = uuid
 	other_player.position = position
+	other_player.get_node("Name").text = display_name
 	get_tree().current_scene.add_child(other_player)
 
 @rpc func send_other_players(other_players: Dictionary):
