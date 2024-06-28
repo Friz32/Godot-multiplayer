@@ -22,9 +22,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_k4qvi")
+current_tab = 4
 tabs_visible = false
 
 [node name="Main" type="Control" parent="TabContainer"]
+visible = false
 layout_mode = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="TabContainer/Main"]
@@ -244,6 +246,21 @@ text = "Failed to connect to the server"
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Back"
+
+[node name="Connecting" type="Control" parent="TabContainer"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="TabContainer/Connecting"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="TabContainer/Connecting/CenterContainer"]
+layout_mode = 2
+text = "Connecting to the server..."
 
 [connection signal="pressed" from="TabContainer/Main/CenterContainer/VBoxContainer/Multiplayer" to="." method="on_multiplayer_pressed"]
 [connection signal="pressed" from="TabContainer/Multiplayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Connect" to="." method="on_connect_tab_pressed"]

@@ -5,6 +5,7 @@ extends Control
 @onready var multiplayer_tab: Control = $TabContainer/Multiplayer
 @onready var failed_to_connect_tab: Control = $TabContainer/FailedToConnect
 @onready var connect_tab: Control = $TabContainer/Connect
+@onready var connecting_tab: Control = $TabContainer/Connecting
 @onready var ip: LineEdit = %IP
 @onready var port: LineEdit = %Port
 @onready var le_login: LineEdit = %Login
@@ -29,6 +30,8 @@ func connect_to_server(ip: String, port: int, login: String, password: String):
 
 func on_connected_to_server():
 	MP.connect_to_server.rpc_id(1, login, password)
+	if is_multiplayer_authority():
+		print("test")
 
 func on_connection_failed():
 	tab_container.current_tab = tab_container.get_tab_idx_from_control(failed_to_connect_tab)

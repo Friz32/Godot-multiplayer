@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://bvgvslgxwd0ng"]
+[gd_scene load_steps=10 format=3 uid="uid://bvgvslgxwd0ng"]
 
 [ext_resource type="Texture2D" uid="uid://dds6iujk1q80j" path="res://textures/test.png" id="2_bb16y"]
 [ext_resource type="Script" path="res://assets/warp/warp_3d.gd" id="2_pcu8h"]
-[ext_resource type="PackedScene" uid="uid://dpdpi6yp44fbd" path="res://scenes/world/test2.tscn" id="3_6aeb1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mbnog"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -49,7 +48,7 @@ mesh = SubResource("PlaneMesh_hw8dk")
 [node name="Warp3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.701746, -6.9888)
 script = ExtResource("2_pcu8h")
-scene = ExtResource("3_6aeb1")
+scene = "res://scenes/world/test2.tscn"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Warp3D"]
 shape = SubResource("BoxShape3D_sg2vx")

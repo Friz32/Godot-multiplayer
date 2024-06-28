@@ -1,5 +1,7 @@
 extends Node3D
 
+@onready var model: Node3D = $Model
+
 var uuid := ""
 
 func _process(delta: float) -> void:
@@ -8,3 +10,5 @@ func _process(delta: float) -> void:
 		return
 	
 	position = MP.other_players[uuid]["position"]
+	model.rotation.y = MP.other_players[uuid]["rotation"]
+	

@@ -35,6 +35,9 @@ var movement_mode_function = {
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
+func _exit_tree() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
 func _input(event):
 	camera_control(event)
 	
@@ -64,7 +67,8 @@ func _unhandled_input(event):
 		get_tree().root.set_input_as_handled()
 
 func _process(delta: float) -> void:
-	MP.send_player_position.rpc_id(1, position)
+	if !multiplayer.multiplayer_peer is OfflineMultiplayerPeer:
+		MP.send_player_transform.rpc_id(1, position, camera.rotation)
 
 func _physics_process(delta):
 	movement_mode_function[movement_mode].call()

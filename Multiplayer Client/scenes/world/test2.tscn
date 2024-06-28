@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dpdpi6yp44fbd"]
+[gd_scene load_steps=10 format=3 uid="uid://dpdpi6yp44fbd"]
 
 [ext_resource type="Texture2D" uid="uid://dds6iujk1q80j" path="res://textures/test.png" id="1_ireog"]
+[ext_resource type="Script" path="res://assets/warp/warp_3d.gd" id="2_52r8m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_y23ub"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -28,6 +29,10 @@ size = Vector2(200, 200)
 subdivide_width = 16
 subdivide_depth = 16
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_a4lkn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ks4xu"]
+
 [node name="Node3D" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -40,3 +45,18 @@ shadow_enabled = true
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
 use_collision = true
 mesh = SubResource("PlaneMesh_ov8vp")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.76361, -7.33045)
+size = Vector3(11.2361, 4.52722, 1)
+
+[node name="Warp3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.50833, 0.694908, 5.44853)
+script = ExtResource("2_52r8m")
+scene = "res://scenes/world/test.tscn"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Warp3D"]
+shape = SubResource("BoxShape3D_a4lkn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Warp3D"]
+mesh = SubResource("BoxMesh_ks4xu")
